@@ -56,6 +56,7 @@ use bevy_reflect::Reflect;
 use bevy_time::{Fixed, Time};
 use bevy_utils::prelude::DebugName;
 use core::fmt::Debug;
+use std::ops::Deref;
 use lightyear_core::prelude::LocalTimeline;
 use lightyear_core::timeline::is_in_rollback;
 use lightyear_interpolation::prelude::InterpolationRegistry;
@@ -262,7 +263,7 @@ pub(crate) fn update_visual_interpolation_status<
         //     );
         //     continue;
         // }
-        interpolate_status.current_value = Some(component.clone());
+        interpolate_status.current_value = Some(component.as_ref().clone());
         trace!(
             ?interpolate_status,
             "updating interpolate status current_value"

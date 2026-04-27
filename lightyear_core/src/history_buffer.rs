@@ -41,8 +41,8 @@ impl<R> From<HistoryState<R>> for Option<R> {
 
 /// HistoryBuffer stores past values (usually of a Component or Resource) in a buffer, to allow for rollback
 /// The values must always remain ordered from oldest (front) to most recent (back)
-#[derive(Resource, Component, Debug, Reflect)]
-#[reflect(Component, Resource)]
+#[derive(Resource, Debug, Reflect)]
+#[reflect(Resource)]
 pub struct HistoryBuffer<R> {
     // Queue containing the history of the resource.
     // The front contains old elements, the back contains the more recent elements.
